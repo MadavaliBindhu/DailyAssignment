@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .switch{
+            width:400px;
+            height:400px;
+            border:2px solid aqua;
+            border-radius:30px;
+            margin-left:600px;
+            margin-top:40px;
+        }
+        .click{
+            margin-left: 800px;
+            margin-top:40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="switch"></div>
+    <button class="click" onclick="clickme()">Click</button>
+
+
+</body>
+<script>
+      let click = document.querySelector(".click");
+      let isLight=false;
+      function clickme(){
+        isLight= !isLight
+        if(isLight){
+            let bulb=document.querySelector(".switch");
+            bulb.style.backgroundColor="skyblue";
+        }
+        else{
+            let bulb=document.querySelector(".switch");
+            bulb.style.backgroundColor="white";
+        }
+      }
+</script>
+</html>
