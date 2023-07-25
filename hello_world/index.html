@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Hello World Font Size</title>
+    <style>
+        #hello{
+            color: rgba(75, 245, 45, 0.999);
+            border:2px solid black;
+            width:200px;
+            height:auto;
+            margin-left:600px;
+            margin-top: 300px;
+        }
+        input{
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="hello">Hello World!</h1>
+    <input type="text" id="font_size" placeholder="Type font size">
+    <button onclick="document.getElementById('hello').style.fontSize = document.getElementById('font_size').value + 'px';">Apply</button>
+</body>
+</html>
