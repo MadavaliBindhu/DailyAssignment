@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <input type="text" id="checkout" placeholder="write here">
+    <button onclick="addTodo()">Add</button>
+
+    <ul id="todo"></ul>
+
+    <script>
+        function addTodo() {
+            var todoInput = document.getElementById("checkout");
+            var todoText = todoInput.value.trim();
+
+            if (todoText !== "") {
+                var todoList = document.getElementById("todo");
+                var newTodo = document.createElement("li");
+                newTodo.innerText = todoText;
+                newTodo.addEventListener("click", function() {
+                    this.remove();
+                });
+                todoList.appendChild(newTodo);
+                todoInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
