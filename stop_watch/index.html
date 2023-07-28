@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop_watch</title>
+    <style>
+        #maindiv{
+            border: 2px solid black;
+            width:600px;
+            margin-left: 600px;
+            margin-top: 300px;
+            background-image: linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
+        }
+        #display{
+            margin-left: 200px;
+            font-size: 40px;
+        }
+        button{ 
+            margin-left: 90px;
+            padding: 10px 10px 10px 10px ;
+        }
+        body{
+            background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+        }
+    </style>
+
+<body>
+    <div id="maindiv">
+        <p id="display">00:00:00</p>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <script>
+        let timer;
+        let time = 0;
+
+        function updateDisplay() {
+            let hours = Math.floor(time / 3600);
+            let minutes = Math.floor((time % 3600) / 60);
+            let seconds = time % 60;
+
+            let timeString =
+                (hours < 10 ? "0" + hours : hours) + ":" +
+                (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                (seconds < 10 ? "0" + seconds : seconds);
+
+            document.getElementById("display").innerText = timeString;
+        }
+
+        function start() {
+            if (!timer) {
+                timer = setInterval(function() {
+                    time++;
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        function stop() {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function reset() {
+            clearInterval(timer);
+            timer = null;
+            time = 0;
+            updateDisplay();
+        }
+        
+</script>
+</body>
+</html>
+
+
